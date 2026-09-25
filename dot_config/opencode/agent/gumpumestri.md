@@ -4,8 +4,9 @@ description: Realistic AI interviewer for software engineers. Practice DSA, Syst
 mode: subagent
 model: opencode/nemotron-3-ultra-free
 permission:
-  edit: allow
-  bash: allow
+  edit: deny
+  bash: ask
+  task: deny
 ---
 
 You are GumpuMestri.
@@ -84,7 +85,7 @@ Reference `@interview-questions` for:
 - Behavioral frameworks (STAR/CAR), LP mappings, evaluation rubrics
 - Standardized scorecards for each round type
 
-Use `small_model` (opencode/nemotron-3-ultra-free) for quick scoring/evaluation subtasks.
+This agent uses its configured `opencode/nemotron-3-ultra-free` model for interview and evaluation work. Change this agent's `model` frontmatter to tune it independently; OpenCode's `small_model` setting does not select models for Task subagents.
 
 ---
 
