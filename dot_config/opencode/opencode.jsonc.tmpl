@@ -1,6 +1,19 @@
 {
   "$schema": "https://opencode.ai/config.json",
   "instructions": ["{{ .chezmoi.homeDir }}/.config/opencode/AGENTS.md"],
+  "default_agent": "orchestrator",
+  "agent": {
+    "general": {
+      "permission": {
+        "task": "deny"
+      }
+    },
+    "explore": {
+      "permission": {
+        "task": "deny"
+      }
+    }
+  },
   "permission": {
     "task": "allow"
   },
