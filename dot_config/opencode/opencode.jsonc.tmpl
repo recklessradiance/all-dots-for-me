@@ -1,8 +1,53 @@
 {
   "$schema": "https://opencode.ai/config.json",
-  "instructions": ["{{ .chezmoi.homeDir }}/.config/opencode/AGENTS.md"],
-  "default_agent": "orchestrator",
+  "instructions": ["/Users/rcred/.config/opencode/AGENTS.md"],
+  "default_agent": "gumpu-mestri",
   "agent": {
+    "gumpu-mestri": {
+      "model": "opencode/gpt-6-luna",
+      "mode": "primary",
+      "description": "General-purpose primary agent for routing research, learning, planning, analysis, writing, debugging, coding, administration, automation, and other tasks. Dynamically delegates only when useful."
+    },
+    "planner": {
+      "model": "opencode/gpt-5.6-luna",
+      "mode": "subagent",
+      "description": "Decomposes complex goals into ordered steps, dependencies, risks, verification, and the smallest useful set of specialist roles."
+    },
+    "analyst": {
+      "model": "opencode/gpt-5.6-luna",
+      "mode": "subagent",
+      "description": "Analyzes evidence, alternatives, tradeoffs, patterns, calculations, assumptions, and decision criteria without merely restating inputs."
+    },
+    "critic": {
+      "model": "opencode/qwen3.8-max",
+      "mode": "subagent",
+      "description": "Independently challenges important conclusions, plans, research, and implementations for unsupported assumptions, errors, contradictions, and edge cases."
+    },
+    "code-reviewer": {
+      "model": "opencode/kimi-k3",
+      "mode": "subagent",
+      "description": "Performs deep, evidence-based, production-grade reviews of an entire Git repository across frontend, backend, APIs, persistence, infrastructure, and tests. Review only; never change files."
+    },
+    "executor": {
+      "model": "opencode/mimo-v2.6-pro",
+      "mode": "subagent",
+      "description": "Performs authorized operational work such as editing files, running commands, testing, and manipulating the local environment, then verifies the result."
+    },
+    "researcher": {
+      "model": "opencode/deepseek-v4.1-flash",
+      "mode": "subagent",
+      "description": "Researches unfamiliar or time-sensitive questions using documentation and primary sources; returns evidence, citations, assumptions, and uncertainties."
+    },
+    "teacher": {
+      "model": "opencode/deepseek-v4.1-flash",
+      "mode": "subagent",
+      "description": "Teaches concepts progressively with concrete examples, level-aware explanations, misconception checks, and useful exercises when appropriate."
+    },
+    "synthesizer": {
+      "model": "opencode/gpt-5.6-luna",
+      "mode": "subagent",
+      "description": "Combines multiple specialist handoffs into one concise result, reconciling contradictions and separating verified facts from uncertainty."
+    },
     "general": {
       "permission": {
         "task": "deny"
